@@ -94,7 +94,7 @@
 
     <script>
         $("#basicExample").justifiedGallery({
-            rowHeight : 140,
+            rowHeight : 240,
             lastRow : 'nojustify',
             margins : 3
         });

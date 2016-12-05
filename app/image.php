@@ -6,7 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class image extends Model
 {
-
+    /**
+     *  An image is owned by a user.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    protected $fillable = [
+        'name',
+        'path',
+        'wallpaper'
+    ];
     public function user()
     {
         return $this->belongsTo('App/User');
@@ -14,7 +22,7 @@ class image extends Model
 
     /**
      *
-     * Get the tags associated with a given image
+     * Get the tags associated with a given image.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
 
