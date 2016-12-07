@@ -15,7 +15,7 @@
                 </div>
                 <div class="form-group">
                     <label class="col-form-label">
-                       path for test <input class="form-control" type="text" value="" name="path" id="name" >
+                        tag <input class="form-control" type="text" value="" name="tag" id="tag" >
                     </label>
                 </div>
                 <div class="form-group">
@@ -27,12 +27,16 @@
 
             </form>
             <div id="basicExample">
-                <a href="http://i.imgur.com/jPuULfq.jpg">
-                    <img alt="caption for image 1" src="http://i.imgur.com/jPuULfq.jpg"/>
-                </a>
-                <a href="http://i.imgur.com/lcXFKDN.jpg">
-                    <img alt="caption for image 2" src="http://i.imgur.com/lcXFKDN.jpg"/>
-                </a>
+
+                @foreach($wallpapers as $wallpaper)
+
+                    <a href="{{URL::asset('../wallpapers/' . $wallpaper->path) }}">
+                        <img alt="{{$wallpaper->name}}" src="{{URL::asset('../wallpapers/' . $wallpaper->path) }}" alt="">
+                    </a>
+
+
+
+                @endforeach
 
             </div>
         </div>

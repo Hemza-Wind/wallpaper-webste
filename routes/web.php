@@ -12,10 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('/');
 });
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'ImagesController@index');
 Route::post('/' , 'ImagesController@store');
