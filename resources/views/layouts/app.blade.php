@@ -13,6 +13,8 @@
     <!-- Styles -->
 
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/lightbox.css" rel="stylesheet">
+
     <link rel="stylesheet" href="/css/justifiedGallery.min.css" />
 
 
@@ -89,12 +91,20 @@
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="/js/lightbox.js"></script>
+    <script>
+        lightbox.option({
+            'fadeDuration': 200,
+            'resizeDuration': 0
+
+        })
+    </script>
     <script src="/js/app.js"></script>
     <script src="/js/jquery.justifiedGallery.min.js"></script>
 
     <script>
         $("#basicExample").justifiedGallery({
-            rowHeight : 240,
+            rowHeight : 160,
             lastRow : 'nojustify',
             margins : 3
         });

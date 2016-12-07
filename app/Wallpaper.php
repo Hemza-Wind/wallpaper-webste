@@ -3,13 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
-class image extends Model
+use Laravel\Scout\Searchable;
+class Wallpaper extends Model
 {
+
     /**
      *  An image is owned by a user.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+
     protected $fillable = [
         'name',
         'path',
@@ -30,4 +32,6 @@ class image extends Model
     {
         return $this->belongsToMany('App\Tag')->withTimestamps();
     }
+
+    protected $table = "Wallpaper";
 }

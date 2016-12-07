@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImageTagTable extends Migration
+class CreateTagWallpaperTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateImageTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('image_tag', function (Blueprint $table) {
-            $table->integer('image_id', false, true)->unsigned()->length(10)->index();
-            $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');
+        Schema::create('tag_wallpaper', function (Blueprint $table) {
+
+            $table->integer('wallpaper_id', false, true)->unsigned()->length(10)->index();
+            $table->foreign('wallpaper_id')->references('id')->on('Wallpaper')->onDelete('cascade');
 
             $table->integer('tag_id', false, true)->unsigned()->length(10)->index();
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
@@ -31,6 +32,6 @@ class CreateImageTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('image_tag');
+        Schema::dropIfExists('tag_wallpaper');
     }
 }
