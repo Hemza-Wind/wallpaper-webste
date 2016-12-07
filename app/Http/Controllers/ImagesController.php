@@ -6,8 +6,9 @@ namespace App\Http\Controllers;
 use App\Wallpaper;
 use App\Tag;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image;
+
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class ImagesController extends Controller
 {
@@ -33,12 +34,6 @@ class ImagesController extends Controller
 
         request()->file('wallpaper')->store('wallpapers');
 
-
-       
-
-
-
-
         $tag  = new Tag;
         $tag->name = $request->tag;
         $tag->save();
@@ -49,6 +44,15 @@ class ImagesController extends Controller
         $Wallpaper->save();
 
         $Wallpaper->tags()->attach($tag->id);
+
+
+        $img = Image::make('wallpapers/' . $request->file('wallpaper')->hashName())->resize(240, null,  function ($constraint) {
+            $constraint->aspectRatio();
+        } )->save('wallpapers/thumbnails/' . $request->file('wallpaper')->hashName(), 60);
+
+
+
+
         return back();
     }
 }

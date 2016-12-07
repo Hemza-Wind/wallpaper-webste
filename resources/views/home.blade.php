@@ -34,7 +34,7 @@
                 @foreach($wallpapers as $wallpaper)
 
                     <a data-lightbox="{{$wallpaper->path}}" href="{{URL::asset('../wallpapers/' . $wallpaper->path) }}">
-                        <img alt="{{$wallpaper->name}}" src="{{URL::asset('/wallpapers/' . $wallpaper->path) }}" alt="">
+                        <img alt="{{$wallpaper->name}}" src="{{URL::asset('/wallpapers/thumbnails/' . $wallpaper->path) }}" alt="">
                     </a>
 
 
