@@ -28,9 +28,7 @@ class ImagesController extends Controller
     public function store(Request $request)
     {
 
-        $this->validate($request, [
-            'wallpaper' => 'required|mimes:jpeg,jpg,png'
-        ]);
+
 
         request()->file('wallpaper')->store('wallpapers');
 

@@ -29,7 +29,7 @@
             </div>
 
 
-            <div id="basicExample">
+            <div id="basicExample" class="justified-gallery">
 
                 @foreach($wallpapers as $wallpaper)
 
