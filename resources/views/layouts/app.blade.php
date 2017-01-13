@@ -51,7 +51,11 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        @if (Auth::user())
+                        &nbsp;  <li><a href="{{ url('/upload') }}">Upload</a></li>
+                        @endif
+                            <li><a href="{{ url('/albums') }}">Albums</a></li>
+                            <li><a href="{{ url('/myuploads') }}">my uploads</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -60,6 +64,7 @@
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
+
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -94,8 +99,8 @@
     <script src="/js/lightbox.js"></script>
     <script>
         lightbox.option({
-            'fadeDuration': 200,
-            'resizeDuration': 0
+            'fadeDuration': 300,
+            'resizeDuration': 300
 
         })
     </script>

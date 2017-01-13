@@ -15,7 +15,13 @@ Route::get('/', function () {
     return view('/');
 });
 
-Auth::routes();
+Route::get('/upload', function () {
+    return view('/upload');
+});
 
+Auth::routes();
 Route::get('/', 'ImagesController@index');
-Route::post('/' , 'ImagesController@store');
+Route::post('/upload' , 'ImagesController@store');
+Route::get('/albums', 'AlbumsController@index');
+Route::get('/myuploads', 'MyuploadsController@index');
+Route::delete('/myuploads', 'MyuploadsController@destroy');

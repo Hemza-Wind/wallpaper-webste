@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWallpaperTable extends Migration
+class CreateAlbumTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateWallpaperTable extends Migration
      */
     public function up()
     {
-        Schema::create('Wallpaper', function (Blueprint $table) {
+        Schema::create('album', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
             $table->string('name');
-            $table->string('path');
-            $table->integer('uploadedby', false, true)->unsigned()->length(10)->index();
-            $table->foreign('uploadedby')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
+            $table->integer('wallpaper_id', false, true)->unsigned()->length(10)->index();
+            $table->foreign('wallpaper_id')->references('id')->on('Wallpaper')->onDelete('cascade');
+
         });
     }
 
@@ -30,6 +30,6 @@ class CreateWallpaperTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Wallpaper');
+        Schema::dropIfExists('album');
     }
 }
